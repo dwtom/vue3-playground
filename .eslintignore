@@ -1,6 +1,5 @@
 node_modules
 dist
-components.d.ts
-auto-imports.d.ts
+*.d.ts
 index.html
 postcss.config.js
