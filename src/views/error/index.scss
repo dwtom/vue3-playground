@@ -1,0 +1,22 @@
+.err-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  .err-img {
+    margin-right: 120px;
+  }
+  .err-title {
+    margin-bottom: 30px;
+    font-size: 60px;
+    font-weight: 600;
+    color: #434e59;
+  }
+  .err-word {
+    margin-bottom: 20px;
+    font-size: 19px;
+    color: #848587;
+    font-weight: 400;
+  }
+}

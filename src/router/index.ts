@@ -1,40 +1,17 @@
-import { createRouter, createWebHistory } from 'vue-router';
+/*
+ * @Description: 路由整体入口
+ * @Author: Dong Wei
+ * @Date: 2023-03-23 18:00:00
+ * @LastEditors: Dong Wei
+ * @LastEditTime: 2023-04-04 16:08:39
+ * @FilePath: \vue3-playground\src\router\index.ts
+ */
+import router from './router';
 
-const BlankLayout = () => import('@/layouts/BlankLayout.vue');
-
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      redirect: '/main/home',
-    },
-    {
-      path: '/main',
-      name: 'mainPage',
-      component: () => import('@/layouts/BasicLayout.vue'),
-      children: [
-        {
-          path: 'home',
-          name: 'home',
-          component: () => import('@/views/home.vue'),
-        },
-        {
-          // 动画
-          path: 'animate',
-          name: 'animate',
-          component: BlankLayout,
-          children: [
-            {
-              path: 'parallax-scrolling',
-              name: 'parallaxScrolling',
-              component: () => import('@/views/animate/css/parallaxScrolling.vue'),
-            },
-          ],
-        },
-      ],
-    },
-  ],
+// 路由拦截
+router.beforeEach((to, from, next) => {
+  // 权限判断
+  next();
 });
 
 export default router;
