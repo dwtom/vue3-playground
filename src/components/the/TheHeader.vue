@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-03-24 15:46:28
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-04 16:50:57
+ * @LastEditTime: 2023-04-04 17:20:32
  * @FilePath: \vue3-playground\src\components\the\TheHeader.vue
 -->
 <template>
@@ -48,12 +48,10 @@
 </template>
 
 <script setup lang="ts">
-import type { RouteRecordName } from 'vue-router';
-
 import { ElMessage } from 'element-plus';
 
 interface Menu {
-  activeInd: RouteRecordName | null | undefined; // 当前高亮的项
+  activeInd: string | undefined; // 当前高亮的项
   data: any[];
 }
 
@@ -76,7 +74,7 @@ const setMenu = () => {
 
 // 根据路由name匹配菜单高亮项
 const setMenuDefaultActive = () => {
-  menu.activeInd = route.name;
+  menu.activeInd = route.name as string;
 };
 
 // 监听菜单点击
