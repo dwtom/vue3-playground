@@ -7,9 +7,7 @@
  * @FilePath: \vue3-playground\src\views\home.vue
 -->
 <template>
-  <div>
-    <el-button plain>首页按钮</el-button>
-  </div>
+  <div>say something</div>
 </template>
 
 <script setup lang="ts"></script>

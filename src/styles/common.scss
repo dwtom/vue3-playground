@@ -1,0 +1,245 @@
+/*
+ * @Description: 公共样式(如果使用了富文本编辑器，需要在指定class中还原部分样式，如list-style等)
+ * @Author: Dong Wei
+ * @Date: 2021-08-11 15:53:45
+ * @LastEditors: Dong Wei
+ * @LastEditTime: 2023-03-24 11:14:58
+ * @FilePath: \vue3-playground\src\styles\common.scss
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: var(--color-text);
+  font-size: var(--font-size);
+  font-family: system-ui, —apple-system, Segoe UI, Roboto, Emoji, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+}
+
+// 衬线字体(标题使用)
+.font-serif {
+  font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+// 等宽字体(代码块使用)
+.font-mono {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+#app {
+  height: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited {
+  color: var(--color-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+$size-map: (
+  -2: -2px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  8: 8px,
+  9: 9px,
+  10: 10px,
+  12: 12px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+  24: 24px,
+  25: 25px,
+  29: 29px,
+  30: 30px,
+  32: 32px,
+  40: 40px,
+  46: 46px,
+  50: 50px,
+  58: 58px,
+  140: 140px
+);
+@each $name in map-keys($size-map) {
+  $value: map-get($size-map, $name);
+  .mt-#{$name} {
+    margin-top: $value;
+  }
+  .mr-#{$name} {
+    margin-right: $value;
+  }
+  .mb-#{$name} {
+    margin-bottom: $value;
+  }
+  .ml-#{$name} {
+    margin-left: $value;
+  }
+  .margin-#{$name} {
+    margin: $value;
+  }
+  .pt-#{$name} {
+    padding-top: $value;
+  }
+  .pr-#{$name} {
+    padding-right: $value;
+  }
+  .pb-#{$name} {
+    padding-bottom: $value;
+  }
+  .pl-#{$name} {
+    padding-left: $value;
+  }
+  .pd-#{$name} {
+    padding: $value;
+  }
+}
+
+@for $i from 1 through 7 {
+  .font-w#{$i} {
+    font-weight: $i * 100;
+  }
+}
+
+@for $i from 10 to 30 {
+  .font-#{$i} {
+    font-size: $i + px;
+  }
+}
+
+/* flex样式 BEGIN */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+// 水平两端对齐 垂直居中
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* flex样式 END */
+
+/*文字溢出...*/
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 清除浮动
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* 滚动条样式修改 BEGIN */
+/* 滚动条有滑块的轨道部分 */
+::-webkit-scrollbar-track-piece {
+  border-radius: 8px;
+}
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 5px rgba(222, 222, 224, 0.2);
+  box-shadow: inset 0 0 5px rgba(222, 222, 224, 0.2);
+  background: rgba(222, 222, 224, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 201, 204, 1);
+}
+
+::-webkit-scrollbar-corner {
+  display: block;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(222, 222, 224, 0.2);
+  box-shadow: inset 0 0 5px rgba(222, 222, 224, 0.2);
+  border-radius: 0;
+  background: rgba(222, 222, 224, 0.1);
+}
+
+/* 滚动条样式修改 END */
+
+.select-none {
+  user-select: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// 改变input自动填充背景色
+// input:-internal-autofill-selected {
+//   box-shadow: inset 0 0 0 1000px #fff !important;
+// }
