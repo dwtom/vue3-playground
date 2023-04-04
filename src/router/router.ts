@@ -6,6 +6,8 @@
  * @LastEditTime: 2023-04-04 16:20:41
  * @FilePath: \vue3-playground\src\router\router.ts
  */
+
+// 路由meta声明见@/typings/router.d.ts
 import { createRouter, createWebHistory } from 'vue-router';
 import animateRoutes from './modules/animate';
 
