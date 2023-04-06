@@ -15,6 +15,7 @@ coverage
 *.local
 *.zip
 src/**/*.zip
+stats.html
 
 /cypress/videos/
 /cypress/screenshots/

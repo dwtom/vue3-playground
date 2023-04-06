@@ -6,6 +6,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
@@ -13,6 +14,7 @@ export default defineConfig(({ mode }) => {
   // 根据当前工作目录中的 `mode` 加载 .env 文件
   const viteEnv = loadEnv(mode, process.cwd());
   const isProduction = viteEnv.VITE_USER_NODE_ENV === 'production';
+  const isStaging = viteEnv.VITE_USER_NODE_ENV === 'staging';
   return {
     css: {
       devSourcemap: true,
@@ -29,6 +31,7 @@ export default defineConfig(({ mode }) => {
           enabled: true,
         },
       }),
+      isStaging && visualizer(), // 预发布模式可以查看包体积报告
     ],
     resolve: {
       alias: {
@@ -41,6 +44,19 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       reportCompressedSize: false, // 禁用 gzip 压缩大小报告 提高构建速度
+      rollupOptions: {
+        output: {
+          // 静态资源分拆打包
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            }
+          },
+        },
+      },
     },
     server: {
       port: 10010,
