@@ -36,6 +36,25 @@ export default [
           },
         ],
       },
+      {
+        path: 'synthetical',
+        name: 'animate_synthetical',
+        meta: {
+          title: '综合动画',
+        },
+        component: BlankLayout,
+        children: [
+          {
+            path: 'group-random',
+            name: 'animate_synthetical_groupRandom',
+            meta: {
+              isRouter: true,
+              title: '一组元素随机变化',
+            },
+            component: () => import('@/views/animate/synthetical/groupRandom.vue'),
+          },
+        ],
+      },
     ],
   },
 ];

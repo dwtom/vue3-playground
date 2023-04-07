@@ -17,6 +17,8 @@
   --color-link: var(--color-main);
   /* 边框颜色 */
   --color-border: #e6e7e9;
+  /* 说明背景颜色 */
+  --color-commit-bg: #66a9c9;
   /* 字体大小 */
   --font-size: 14px;
 
