@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-04-04 16:09:00
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-04 16:31:52
+ * @LastEditTime: 2023-04-10 14:51:31
  * @FilePath: \vue3-playground\src\router\modules\animate.ts
  */
 const BlankLayout = () => import('@/layouts/BlankLayout.vue');
@@ -33,6 +33,25 @@ export default [
               title: '滚动视差',
             },
             component: () => import('@/views/animate/css/parallaxScrolling.vue'),
+          },
+        ],
+      },
+      {
+        path: 'js-library',
+        name: 'animate_jslibrary',
+        meta: {
+          title: 'js库动画',
+        },
+        component: BlankLayout,
+        children: [
+          {
+            path: '3drotate-card',
+            name: 'animate_jslibrary_3drotatecard',
+            meta: {
+              isRouter: true,
+              title: '3D悬停效果卡片',
+            },
+            component: () => import('@/views/animate/js/vanillaTilt.vue'),
           },
         ],
       },
