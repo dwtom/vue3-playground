@@ -3,10 +3,10 @@
  * @Author: Dong Wei
  * @Date: 2023-04-04 16:09:00
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-10 14:51:31
+ * @LastEditTime: 2023-04-10 17:32:37
  * @FilePath: \vue3-playground\src\router\modules\animate.ts
  */
-const BlankLayout = () => import('@/layouts/BlankLayout.vue');
+// const BlankLayout = () => import('@/layouts/BlankLayout.vue');
 
 export default [
   {
@@ -15,7 +15,7 @@ export default [
     meta: {
       title: '动画',
     },
-    component: BlankLayout,
+    redirect: '/main/animate/css',
     children: [
       {
         path: 'css',
@@ -23,7 +23,7 @@ export default [
         meta: {
           title: 'css',
         },
-        component: BlankLayout,
+        redirect: '/main/animate/css/parallax-scrolling',
         children: [
           {
             path: 'parallax-scrolling',
@@ -42,7 +42,6 @@ export default [
         meta: {
           title: 'js库动画',
         },
-        component: BlankLayout,
         children: [
           {
             path: '3drotate-card',
@@ -61,7 +60,6 @@ export default [
         meta: {
           title: '综合动画',
         },
-        component: BlankLayout,
         children: [
           {
             path: 'group-random',
