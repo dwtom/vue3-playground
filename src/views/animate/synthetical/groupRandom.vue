@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-04-06 09:59:11
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-07 16:39:01
+ * @LastEditTime: 2023-04-12 20:17:07
  * @FilePath: \vue3-playground\src\views\animate\synthetical\groupRandom.vue
 -->
 <template>
@@ -27,8 +27,6 @@ const content: any = reactive({
   data: [],
 });
 
-const showContent = ref(false);
-
 // 定时器
 const timer = ref();
 
@@ -48,9 +46,6 @@ const setContent = () => {
       imgUrl: `https://picsum.photos/200/100?random=${ind + 1}`,
     };
   });
-  setTimeout(() => {
-    showContent.value = true;
-  }, 300);
 };
 
 // 内容随机变化
