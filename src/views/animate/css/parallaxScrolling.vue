@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-04-04 11:01:14
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-04 15:19:50
+ * @LastEditTime: 2023-05-05 13:38:44
  * @FilePath: \vue3-playground\src\views\animate\css\parallaxScrolling.vue
  * reference: https://www.cnblogs.com/coco1s/p/9453938.html
 -->
@@ -14,12 +14,12 @@
 </template>
 
 <script setup lang="ts">
-// import type { Ref } from 'vue';
+import type { StyleValue } from 'vue';
 
 interface ContentItem {
   content: string;
   htmlAttrs: {
-    style: object | '';
+    style: StyleValue | undefined;
     class: string[] | string;
   };
 }
@@ -41,7 +41,7 @@ const setContent = () => {
     return {
       content,
       htmlAttrs: {
-        style: isImg ? { 'background-image': `url(https://picsum.photos/1200/600?random=${realInd})` } : '',
+        style: isImg ? { 'background-image': `url(https://picsum.photos/1200/600?random=${realInd})` } : {},
         class: isImg ? ['bg-img', `img-${realInd}`] : 'content',
       },
     };
