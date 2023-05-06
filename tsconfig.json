@@ -1,5 +1,4 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": [
     "*.d.ts",
     "src/**/*",
@@ -32,6 +31,9 @@
   "references": [
     {
       "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
     }
   ]
 }
