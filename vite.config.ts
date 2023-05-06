@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from 'node:url';
+import fs from 'fs';
 
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
@@ -11,11 +12,23 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  // 对element进行强制预构建，解决开发环境reloading问题
+  const optimizeDepsElementPlusIncludes = ['element-plus/es'];
+  fs.readdirSync('node_modules/element-plus/es/components').map(dirname => {
+    fs.access(`node_modules/element-plus/es/components/${dirname}/style/css.mjs`, err => {
+      if (!err) {
+        optimizeDepsElementPlusIncludes.push(`element-plus/es/components/${dirname}/style/css`);
+      }
+    });
+  });
   // 根据当前工作目录中的 `mode` 加载 .env 文件
   const viteEnv = loadEnv(mode, process.cwd());
   const isProduction = viteEnv.VITE_USER_NODE_ENV === 'production';
   const isStaging = viteEnv.VITE_USER_NODE_ENV === 'staging';
   return {
+    optimizeDeps: {
+      include: optimizeDepsElementPlusIncludes,
+    },
     css: {
       devSourcemap: true,
     },
