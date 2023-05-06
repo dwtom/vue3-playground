@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-03-24 15:46:28
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-04 17:20:32
+ * @LastEditTime: 2023-05-06 10:44:49
  * @FilePath: \vue3-playground\src\components\the\TheHeader.vue
 -->
 <template>
@@ -13,7 +13,7 @@
       <template v-for="(item, ind) in menu.data">
         <!-- 一级菜单无子级 -->
         <el-menu-item
-          v-if="item.meta.isRouter"
+          v-if="item.meta?.isRouter"
           :key="`menu-${ind + 1}`"
           :index="item.name"
           @click="handleMenuClick(item.name)"
@@ -21,7 +21,7 @@
           {{ item.meta?.title ?? '' }}
         </el-menu-item>
         <!-- 有二级菜单 -->
-        <el-sub-menu v-else :key="`menu-sub-${ind + 1}`" :index="item.name">
+        <el-sub-menu v-if="item.meta && !item.meta.isRouter" :key="`menu-sub-${ind + 1}`" :index="item.name">
           <template #title>{{ item.meta?.title ?? '' }}</template>
           <template v-for="(iteml2, indl2) in item.children" :key="`menu-${ind + 1}-${indl2 + 1}`">
             <!-- 没有三级 -->

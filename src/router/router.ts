@@ -10,6 +10,7 @@
 // 路由meta声明见@/typings/router.d.ts
 import { createRouter, createWebHistory } from 'vue-router';
 import animateRoutes from './modules/animate';
+import othersRoutes from './modules/others';
 
 // const BlankLayout = () => import('@/layouts/BlankLayout.vue');
 
@@ -35,6 +36,7 @@ const router = createRouter({
           component: () => import('@/views/home.vue'),
         },
         ...animateRoutes,
+        ...othersRoutes,
       ],
     },
     {

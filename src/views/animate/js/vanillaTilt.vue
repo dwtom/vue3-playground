@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-04-10 09:51:11
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-05-05 15:48:31
+ * @LastEditTime: 2023-05-06 10:14:07
  * @FilePath: \vue3-playground\src\views\animate\js\vanillaTilt.vue
 -->
 <template>
@@ -21,13 +21,13 @@
       <p class="inner-word">描述文本</p>
     </li>
   </ul>
-  <p class="commit ml-20">
+  <div class="commit ml-20">
     说明：<br />
     1. 只有在nextTick中才能获取到ref给VanillaTilt使用 <br />
     2.
     <strong>"transform-style: preserve-3d;"</strong
     >作用的元素不可以同时使用<strong>"overflow:hidden"</strong>,否则内部元素的视差3d效果无法显示
-  </p>
+  </div>
 </template>
 
 <script setup lang="ts">

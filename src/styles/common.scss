@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2021-08-11 15:53:45
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-07 16:25:56
+ * @LastEditTime: 2023-05-06 16:39:09
  * @FilePath: \vue3-playground\src\styles\common.scss
  */
 *,
@@ -32,8 +32,8 @@ body {
   font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 // 等宽字体(代码块使用)
-.font-mono {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+code .font-mono {
+  font-family: Consolas, Menlo, Monaco, 'Liberation Mono', 'Courier New', monospace;
 }
 
 #app {
@@ -247,7 +247,8 @@ $size-map: (
 // 说明区
 .commit {
   display: inline-block;
-  padding: 20px;
+  padding: 16px;
   background: var(--color-commit-bg);
-  color: #5b4913;
+  border-left: 5px solid var(--color-main);
+  border-radius: 4px;
 }

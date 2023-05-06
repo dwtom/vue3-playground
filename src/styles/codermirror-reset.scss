@@ -1,0 +1,15 @@
+/*
+ * @Description: codemirror代码重置
+ * @Author: Dong Wei
+ * @Date: 2023-05-06 16:37:43
+ * @LastEditors: Dong Wei
+ * @LastEditTime: 2023-05-06 16:37:45
+ * @FilePath: \vue3-playground\src\styles\codermirror-reset.scss
+ */
+.cm-editor {
+  width: 400px;
+  overflow: auto;
+  .cm-scroller {
+    font-family: Consolas;
+  }
+}
