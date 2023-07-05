@@ -9,10 +9,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AppCodeMirror: typeof import('./src/components/app/AppCodeMirror.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
-    ElCollapseTransition: typeof import('element-plus/es')['ElCollapseTransition']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElLink: typeof import('element-plus/es')['ElLink']
     ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -22,8 +20,5 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheHeader: typeof import('./src/components/the/TheHeader.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
