@@ -4,7 +4,7 @@ import fs from 'fs';
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-
+import viteCompression from 'vite-plugin-compression';
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -45,6 +45,10 @@ export default defineConfig(({ mode }) => {
         },
       }),
       isStaging && visualizer(), // 预发布模式可以查看包体积报告
+      // 打包时进行gzip压缩，nginx同时设置优先使用静态压缩文件以减小服务器压力
+      viteCompression({
+        threshold: 102400, // 对大于 100kb 的文件进行压缩
+      }),
     ],
     resolve: {
       alias: {
@@ -63,11 +67,11 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: 'assets/js/[name]-[hash].js',
           entryFileNames: 'assets/js/[name]-[hash].js',
           assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return id.toString().split('node_modules/')[1].split('/')[0].toString();
-            }
-          },
+          // manualChunks(id) {
+          //   if (id.includes('node_modules')) {
+          //     return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          //   }
+          // },
         },
       },
     },
