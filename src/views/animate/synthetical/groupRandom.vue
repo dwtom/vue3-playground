@@ -3,7 +3,7 @@
  * @Author: Dong Wei
  * @Date: 2023-04-06 09:59:11
  * @LastEditors: Dong Wei
- * @LastEditTime: 2023-04-12 20:17:07
+ * @LastEditTime: 2023-08-25 10:10:57
  * @FilePath: \vue3-playground\src\views\animate\synthetical\groupRandom.vue
 -->
 <template>
@@ -17,7 +17,7 @@
     </TransitionGroup>
   </div>
   <p class="commit ml-20">
-    说明：vue3对template标签使用v-for时，key需要放在自身而不是子元素上，并且该例情况下不可以使用index，否则动画无法生效
+    说明：vue3对template标签使用v-for时，key需要放在自身而不是子元素上，并且该例情况下不可以使用index，否则动画无法生效，切换动效只要加了TransitionGroup就会生效
   </p>
 </template>
 
